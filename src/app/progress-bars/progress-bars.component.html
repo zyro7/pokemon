@@ -1,0 +1,40 @@
+<!-- Bottom part with more specs and the progres bars and the buttons -->
+<div class="row">
+  <small class="col-5 font-weight-bold">
+    <p class="">
+      HP
+    </p>
+    <p class="">
+      Attack
+    </p>
+    <p class="">
+      Defense
+    </p>
+    <p class="">
+      Speed
+    </p>
+
+  </small>
+  <div class="col-7">
+    <div class="progress ">
+      <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+        [ngStyle]="getProperty(pokemon.hp)" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        {{pokemon.hp}} %</div>
+    </div>
+    <div class="progress mt-3">
+      <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+        [ngStyle]="getProperty(pokemon.attack)" aria-valuenow="pokemon.hp" aria-valuemin="0" aria-valuemax="100">
+        {{pokemon.attack}} %</div>
+    </div>
+    <div class="progress mt-4">
+      <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+        [ngStyle]="getProperty(pokemon.defense)" aria-valuenow="pokemon.hp" aria-valuemin="0" aria-valuemax="100">
+        {{pokemon.defense}} %</div>
+    </div>
+    <div class="progress mt-4">
+      <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+        [ngStyle]="getProperty(pokemon.speed)" aria-valuenow="pokemon.hp" aria-valuemin="0" aria-valuemax="100">
+        {{pokemon.speed}} %</div>
+    </div>
+  </div>
+</div>

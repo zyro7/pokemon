@@ -1,0 +1,56 @@
+<!-- The first navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Pokemons App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- Buttons for search the pokemon types -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#" (click)="getPokemon('')">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getPokemon('types=Normal')">Normal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getPokemon('types=Fire')">Fire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getPokemon('types=Water')">Water</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getPokemon('types=Electric')">Electric</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Altres tipus
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Grass')">Grass</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Ice')">Ice</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Fighting')">Fighting</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Poison')">Poison</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Ground')">Ground</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Flying')">Flying</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Psychic')">Psychic</a>
+          <a class="dropdown-item" href="#" (click)="getPokemon('types=Bug')">Bug</a>
+        </div>
+      </li>
+    </ul>
+    <!-- End of the buttons -->
+    <!-- Browser for pokemons-->
+    <form class="form-inline my-2 my-lg-0" [formGroup]="buscarPokemon"  (ngSubmit)="sendSearch(userForm.value)">
+      <div class="form-group">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="filterPokemon" formControlName="search">
+      </div>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</nav>
+
+<app-second-navbar></app-second-navbar>
+<app-main [search]="filterPokemon"></app-main>
