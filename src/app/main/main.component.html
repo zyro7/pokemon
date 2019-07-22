@@ -1,19 +1,19 @@
 <!--The main of the project, with all the pokemons -->
-<div class="container">
-  <div class="row">
-    <div *ngFor="let pokemon of pokemons | pipes: search" class="{{pokemon.name}} card col-12 col-sm-4 col-md-3 col-lg-3">
-      <div class="card-header bg-success text-white">
+<div class="row offset-lg-2 offset-md-3 offset-sm-3">
+  <div *ngFor="let pokemon of pokemons | pipes:search | type:types" class="{{pokemon.name}} col-sm-8 col-md-4 col-lg-3 m-1 p-0 " >
+    
+      <div class="card-header bg-success text-white ">
         {{ pokemon.name | uppercase }}
       </div>
       <app-specs [pokemon]="pokemon"></app-specs>
-      <app-progress-bars [pokemon]="pokemon" *ngIf="isActive"></app-progress-bars>
-      
-
-      
+      <app-progress-bars [pokemon]="pokemon"></app-progress-bars>
       
       <hr class="style1">
-    </div>
+
+      <app-modal class="mx-auto my-auto pb-2" [pokemon]="pokemon"></app-modal>
+    
   </div>
 </div>
+
 
 

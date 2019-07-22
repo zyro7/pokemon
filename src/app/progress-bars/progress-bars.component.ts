@@ -15,4 +15,11 @@ export class ProgressBarsComponent implements OnInit {
   ngOnInit() {
   }
 
+  // returns the specifies spec for drawing of the progress bar
+  getProperty(spec) {
+    let property = {
+      'width': spec + '%'
+    }
+    return property;
+  }
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, NgModule } from '@angular/core';
-import json from '../../assets/pokemon.json';
-import { IsActiveService } from './../is-active.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { GetPokemonService } from '../get-pokemon.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ModalComponent } from '../modal/modal.component';
+
 
 @Component({
   selector: 'app-main',
@@ -9,24 +11,37 @@ import { IsActiveService } from './../is-active.service';
 })
 export class MainComponent implements OnInit {  
 
-  public isActive: boolean = false;
-
-  public pokemons;
+  public pokemons = [] ;
 
   @Input() search: string;
 
-  constructor(public myService: IsActiveService) { }
+  @Input() types: string;
+
+  modalRef: BsModalRef;
+  
+  public pokemonsObservable;
+
+  constructor(public _getPokemonService: GetPokemonService, private modalService: BsModalService) { 
+    //Subscribe to a service getPokemons and set the Array empty, to update it later
+    this.pokemonsObservable = this._getPokemonService.getPokemons();
+    this.pokemonsObservable.subscribe((pokemonsData: any[]) => {
+      this.refresh();
+      setTimeout(()=>{    
+        this.pokemons = pokemonsData;
+      }, 10);
+    })
+  }
 
   ngOnInit() {
 
-    this.pokemons = JSON.parse(JSON.stringify(json.pokemons));
   }
   
-  ngOnChanges() {
-    this.isActive = this.myService.getEstat();
-    console.log('onchangesWorks')
+  openModal() {
+    const modalRef = this.modalService.show(ModalComponent);
+    this.modalRef.content.closeBtnName = 'Close';
   }
-
   
-
+  refresh() {
+    this.pokemons = [];
+  }
 }

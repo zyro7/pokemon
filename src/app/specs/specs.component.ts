@@ -14,6 +14,7 @@ export class SpecsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   // It define a border color for the img by the color property 
@@ -38,4 +39,5 @@ export class SpecsComponent implements OnInit {
       $('.'+ name + ' img').addClass('border-dark');
     }
   }
+  
 }

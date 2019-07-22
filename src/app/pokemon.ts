@@ -1,6 +1,7 @@
 // Class pokemon with all her attributes
 export interface pokemon {
     id: number,
+    name: string,
     hp: number,
     height: number,
     weight: number;

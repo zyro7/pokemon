@@ -1,31 +1,31 @@
 <!-- Part of the top of the card with img and few specs of the pokemon -->
-<div class="row pt-2">
-  <div class="col-6">
+<div class="row pt-2 ">
+  <div class="col-6 center-block">
     <img src="{{ pokemon.sprite }}" alt="" [ngStyle]="setColor(pokemon.color,pokemon.name)" style="border-width: 4px;"
-      class="img-thumbnail  border-top-0 border-right-0 border-left-0">
+      class=" img-thumbnail  border-top-0 border-right-0 border-left-0 mx-auto my-auto d-block">
   </div>
-  <div class="col-6">
-    <small class="row">
+  <div class="col-6 text-center ">
+    <small class="row  justify-content-center">
       <div class="p-1 m-1 bg-success text-white rounded">
         {{ pokemon.types[0] }}
       </div>
-      <!--<div *ngIf="( pokemon.types[1] )" class="p-1 m-1 bg-success text-white rounded">
+      <div *ngIf="( pokemon.types[1] )" class="p-1 m-1 bg-success text-white rounded">
         {{ pokemon.types[1] }}
-      </div>-->
+      </div>
     </small>
-    <small class="mt-2 row">
+    <small class="mt-2 row  justify-content-center">
       <p class="font-weight-bold">
         Height:
       </p>
       {{ pokemon.height }} m
     </small>
-    <small class="row">
-      <p class="font-weight-bold">
+    <small class="row justify-content-center">
+      <p class="font-weight-bold ">
         Weight:
       </p>
       {{ pokemon.weight }} kg
     </small>
-    <small class="row">
+    <small class="row  justify-content-center">
       <p class="font-weight-bold">
         Color:
       </p>

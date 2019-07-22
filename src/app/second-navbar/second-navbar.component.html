@@ -1,17 +1,17 @@
 <!-- Second navbar with the order and the checkbox for the progressbars-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light input-group">
-  <span class="navbar-brand mb-0">Ordenar per</span>
-  <select name="" id="" class="custom-select">
-    <option value="">Id</option>
-    <option value="">Nom</option>
-    <option value="">Height</option>
-    <option value="">Attack</option>
+  <span class="navbar-brand mb-0">Order by</span>
+  <select name="" id="" (change)="change($event)" [(ngModel)]="selected" class="custom-select" >
+    <option value="a">Id</option>
+    <option value="b">Name</option>
+    <option value="c">Height</option>
+    <option value="d">Attack</option>
   </select>
   <div class="input-group-append">
     <label class="input-group-text" id="basic-addon2">
-      <i class="fas fa-sort-amount-down ml-1"></i>
+      <fa-icon [icon]="faSortAmountDownAlt"></fa-icon>
     </label>
   </div>
 
-  <input #small type="checkbox" class="ml-2 mr-1" (change)="cambi()" [(ngModel)]="isActive"> Mostrar estadistiques
+  <input type="checkbox" class="checkbox ml-2 mr-1" (change)="cambi($event)"  [(ngModel)]="isActive"> Show statistics
 </nav>

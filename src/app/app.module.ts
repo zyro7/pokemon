@@ -5,13 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SecondNavbarComponent } from './second-navbar/second-navbar.component';
 import { PipesPipe } from './pipes.pipe';
 import { SpecsComponent } from './specs/specs.component';
 import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
 import { FormsModule } from '@angular/forms';
-import { IsActiveService } from './is-active.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSortAmountDownAlt } from '@fortawesome/free-solid-svg-icons';
+import { TypePipe } from './type.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalComponent } from './modal/modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogModalComponent } from './dialog-modal/dialog-modal.component';
+import { MatInputModule } from '@angular/material/input';
+
+
+library.add( faSortAmountDownAlt);
 
 @NgModule({
   declarations: [
@@ -21,18 +33,31 @@ import { IsActiveService } from './is-active.service';
     SecondNavbarComponent,
     PipesPipe,
     SpecsComponent,
-    ProgressBarsComponent
+    ProgressBarsComponent,
+    TypePipe,
+    ModalComponent,
+    DialogModalComponent,
+    
   ],
   imports: [
+    MatInputModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    MatDialogModule,
   ],
-  providers: [
-    IsActiveService
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent, DialogModalComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    
+  }
+  
+}
